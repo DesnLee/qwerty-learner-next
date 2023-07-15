@@ -1,0 +1,51 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Word {
+  id       Int      @id @default(autoincrement())
+  name     String
+  trans    String[]
+  ukphone  String
+  usphone  String?
+  notation String?
+}
+
+model Dict {
+  id               Int    @id @default(autoincrement())
+  name             String
+  description      String
+  category         Int
+  langague         String
+  langagueCategory String
+}
+
+model WordDict {
+  id     Int @id @default(autoincrement())
+  wordId Int
+  dictId Int
+}
+
+model Tag {
+  id   Int    @id @default(autoincrement())
+  name String
+}
+
+model TagDict {
+  id     Int @id @default(autoincrement())
+  tagId  Int
+  dictId Int
+}
+
+model Category {
+  id   Int    @id @default(autoincrement())
+  name String
+}
