@@ -24,8 +24,8 @@ model Dict {
   name             String
   description      String
   category         Int
-  langague         String
-  langagueCategory String
+  language         String
+  languageCategory String
 }
 
 model WordDict {
@@ -36,7 +36,7 @@ model WordDict {
 
 model Tag {
   id   Int    @id @default(autoincrement())
-  name String
+  name String @unique
 }
 
 model TagDict {
@@ -47,5 +47,5 @@ model TagDict {
 
 model Category {
   id   Int    @id @default(autoincrement())
-  name String
+  name String @unique
 }
